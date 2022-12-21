@@ -1,6 +1,7 @@
 const express = require("express");
 const tilesController = require("./controllers/tiles.controller");
 const boatsController = require("./controllers/boats.controller");
+const tileExists = require("./services/tileExists");
 
 const router = express.Router();
 
@@ -11,7 +12,7 @@ router.get("/boats", boatsController.findAll);
 router.get("/boats", boatsController.findByName);
 
 // put
-router.put("/boats/:id", boatsController.updateById);
+router.put("/boats/:id", tileExists.tileExists, boatsController.updateById);
 /***/
 
 module.exports = router;
