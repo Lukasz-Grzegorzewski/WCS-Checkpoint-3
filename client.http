@@ -17,3 +17,8 @@ Content-Type: application/json
     "coord_x": 9,
     "coord_y": 0
 }
+
+###
+
+POST http://localhost:5050/games
+

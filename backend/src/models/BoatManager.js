@@ -25,6 +25,12 @@ const updateById = (x, y, id) => {
   ]);
 };
 
+const resetBP = () => {
+  return db.query(
+    `UPDATE ${table} SET coord_x = 1, coord_y = 1 WHERE name = 'Black Pearl';`
+  );
+};
+
 const deleteOne = (id) => {
   return db.query(`delete from ${table} where id = ?`, [id]);
 };
@@ -34,5 +40,6 @@ module.exports = {
   findByName,
   findAll,
   updateById,
+  resetBP,
   deleteOne,
 };

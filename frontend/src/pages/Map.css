@@ -24,6 +24,41 @@
   align-items: center;
 }
 
+.navigation {
+  position: relative;
+}
+
+.a p {
+  position: absolute;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  background-color: aqua;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.pn {
+  left: 45%;
+  top: 45%;
+  border: 3px solid red;
+}
+.ps {
+  left: 45%;
+  bottom: -10px;
+  transform: translateY(-10px);
+}
+.pe {
+  right: 0;
+  top: 65%;
+  transform: translateX(10px);
+}
+.pw {
+  left: 10%;
+  top: 65%;
+  transform: translateX(-10px);
+}
+
 @media screen and (max-width: 1800px) {
   .tile {
     height: 100px;
