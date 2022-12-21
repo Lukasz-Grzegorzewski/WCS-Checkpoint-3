@@ -1,0 +1,15 @@
+GET http://localhost:5050/boats
+
+###
+
+GET http://localhost:5050/boats?name=Black Pearl
+
+###
+
+PUT http://localhost:5050/boats/4
+Content-Type: application/json
+
+{
+    "coord_x": 9,
+    "coord_y": 1 
+}
