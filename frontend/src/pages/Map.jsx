@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import { useCaribbean } from "../contexts/CaribbeanContext";
 
@@ -8,6 +8,8 @@ import boatImage from "../assets/boat.png";
 
 function Map() {
   const { boats, tiles } = useCaribbean();
+
+  const navigate = useNavigate();
 
   const blackPearl = boats.find((boat) => boat.name === "Black Pearl");
 
@@ -64,6 +66,7 @@ function Map() {
                 <dl>{blackPearl.type}</dl>
                 <dt>has treasure</dt>
                 <dl>{blackPearl.has_treasure}</dl>
+                {blackPearl.has_treasure === 1 && navigate("/win")}
               </dl>
             )}
           </div>

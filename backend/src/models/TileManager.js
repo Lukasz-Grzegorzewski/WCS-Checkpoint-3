@@ -19,12 +19,11 @@ const getAllIslandTiles = () => {
   return db.query(`select id from  ${table} WHERE type = 'island';`);
 };
 
-const putTreasure = () => {
+const putTreasure = (tiles) => {
   const array = [];
-
+  tiles.map((tile) => array.push(tile.id));
   const one = array[Math.floor(Math.random() * array.length)];
   console.warn("one :", one);
-
   return db.query(`UPDATE ${table} SET has_treasure = true WHERE id = ?;`, [
     one,
   ]);
