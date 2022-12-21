@@ -7,7 +7,10 @@ const find = (id) => {
 };
 
 const findByName = (name) => {
-  return db.query(`select * from  ${table} where name = ?`, [name]);
+  return db.query(
+    `SELECT b.name AS name, b.coord_x AS coord_x, b.coord_y AS coord_y, t.type FROM ${table} b INNER JOIN tile t ON b.coord_x = t.coord_x AND b.coord_y = t.coord_y WHERE name = ?;`,
+    [name]
+  );
 };
 
 const findAll = () => {
