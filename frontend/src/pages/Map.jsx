@@ -65,7 +65,7 @@ function Map() {
                 <dt>type</dt>
                 <dl>{blackPearl.type}</dl>
                 <dt>has treasure</dt>
-                <dl>{blackPearl.has_treasure}</dl>
+                <dl>{blackPearl.has_treasure === 1 ? "yes" : "no"}</dl>
                 {blackPearl.has_treasure === 1 && navigate("/win")}
               </dl>
             )}
