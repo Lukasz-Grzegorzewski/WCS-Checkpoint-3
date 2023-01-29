@@ -4,6 +4,7 @@ import NavBar from "./components/NavBar";
 import Home from "./pages/Home";
 import Map from "./pages/Map";
 import MoveBoat from "./pages/MoveBoat";
+import Win from "./pages/Win";
 
 import "./App.css";
 
@@ -18,6 +19,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/map" element={<Map />} />
           <Route path="/boats/:id/move/:x/:y" element={<MoveBoat />} />
+          <Route path="/win" element={<Win />} />
         </Routes>
       </div>
     </>

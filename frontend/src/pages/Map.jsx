@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import { useCaribbean } from "../contexts/CaribbeanContext";
 
@@ -8,6 +8,8 @@ import boatImage from "../assets/boat.png";
 
 function Map() {
   const { boats, tiles } = useCaribbean();
+
+  const navigate = useNavigate();
 
   const blackPearl = boats.find((boat) => boat.name === "Black Pearl");
 
@@ -62,6 +64,9 @@ function Map() {
                 <dl>{blackPearl.coord_y}</dl>
                 <dt>type</dt>
                 <dl>{blackPearl.type}</dl>
+                <dt>has treasure</dt>
+                <dl>{blackPearl.has_treasure}</dl>
+                {blackPearl.has_treasure === 1 && navigate("/win")}
               </dl>
             )}
           </div>
@@ -70,32 +75,36 @@ function Map() {
             {blackPearl && (
               <>
                 <Link
+                  className="a n"
                   to={`/boats/${blackPearl.id}/move/${blackPearl.coord_x}/${
                     blackPearl.coord_y - 1
                   }`}
                 >
-                  N
+                  <p className="pn">N</p>
                 </Link>
                 <Link
+                  className="a s"
                   to={`/boats/${blackPearl.id}/move/${blackPearl.coord_x}/${
                     blackPearl.coord_y + 1
                   }`}
                 >
-                  S
+                  <p className="ps">S</p>
                 </Link>
                 <Link
+                  className="a e"
                   to={`/boats/${blackPearl.id}/move/${blackPearl.coord_x + 1}/${
                     blackPearl.coord_y
                   }`}
                 >
-                  E
+                  <p className="pe">E</p>
                 </Link>
                 <Link
+                  className="a w"
                   to={`/boats/${blackPearl.id}/move/${blackPearl.coord_x - 1}/${
                     blackPearl.coord_y
                   }`}
                 >
-                  W
+                  <p className="pw">W</p>
                 </Link>
               </>
             )}
